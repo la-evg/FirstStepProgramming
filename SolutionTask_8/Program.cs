@@ -2,14 +2,14 @@
 
 if(InputNum != null)
 {
-    int StartNum = 1;
+    int StartNum = 2;
     string LineOutput = "";
 
     while(StartNum <= (int.Parse(InputNum))){
         if(StartNum % 2 == 0){
             LineOutput = LineOutput + StartNum + ", ";
         }
-        StartNum++;
+        StartNum+=2;
     }
     Console.WriteLine(LineOutput.Remove(LineOutput.Length - 2));
 }
