@@ -4,20 +4,24 @@ string? InputThirdNumber = Console.ReadLine();
 
 if(InputFirstNumber != null && InputSecondNumber != null && InputThirdNumber != null)
 {
-    if(int.Parse(InputFirstNumber) > int.Parse(InputSecondNumber)){
-        if(int.Parse(InputFirstNumber) > int.Parse(InputThirdNumber)){
-            Console.WriteLine(InputFirstNumber);
+    int FirstNumber = int.Parse(InputFirstNumber);
+    int SecondNumber = int.Parse(InputSecondNumber);
+    int ThirdNumber = int.Parse(InputThirdNumber);
+
+    if(FirstNumber > SecondNumber){
+        if(FirstNumber > ThirdNumber){
+            Console.WriteLine(FirstNumber);
         }
         else{
-            Console.WriteLine(InputThirdNumber);
+            Console.WriteLine(ThirdNumber);
         }
     }
     else{
-        if(int.Parse(InputSecondNumber) > int.Parse(InputThirdNumber)){
-            Console.WriteLine(InputSecondNumber);
+        if(SecondNumber > ThirdNumber){
+            Console.WriteLine(SecondNumber);
         }
         else{
-            Console.WriteLine(InputThirdNumber);
+            Console.WriteLine(ThirdNumber);
         }
     }
 }
