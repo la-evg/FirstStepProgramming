@@ -6,9 +6,6 @@ int inputPow;
 int resultVariantMath;
 int resultVariantFor;
 
-//Обьявляем переменную для подсчета времени выполнения
-DateTime timePoint = DateTime.Now;
-
 void ReadNumbers()
 {
     //Принимаем число
