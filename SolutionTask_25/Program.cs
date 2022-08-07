@@ -1,6 +1,6 @@
 ﻿Console.Clear();
 
-//Обьявляем глобальные переменные
+//Обьявляем переменных
 int inputNumber;
 int inputPow;
 int resultVariantMath;
