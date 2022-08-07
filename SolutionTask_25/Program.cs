@@ -3,6 +3,8 @@
 //Обьявляем глобальные переменные
 int inputNumber;
 int inputPow;
+int resultVariantMath;
+int resultVariantFor;
 
 //Обьявляем переменную для подсчета времени выполнения
 DateTime timePoint = DateTime.Now;
@@ -18,33 +20,27 @@ void ReadNumbers()
     inputPow = int.Parse(Console.ReadLine());
 }
 
-int VariantMath()
+void VariantMath()
 {
-    int result = (int)Math.Pow(inputNumber, inputPow);
-    return result;
+    resultVariantMath = (int)Math.Pow(inputNumber, inputPow);
 }
 
-int VariantFor()
+void VariantFor()
 {
-    int result = 1;
+    resultVariantFor = 1;
     for (int i = 0; i < inputPow; i++)
     {
-        result *= inputNumber;
+        resultVariantFor *= inputNumber;
     }
-    return result;
 }
 
 void PrintResult()
 {
     Console.WriteLine("-----Первый вариант-----");
-    timePoint = DateTime.Now;
-    Console.WriteLine($"Число {inputNumber} в степени {inputPow} равно: {VariantMath()}");
-    Console.WriteLine("Время выполнения: " + (DateTime.Now.Ticks - timePoint.Ticks));
+    Console.WriteLine($"Число {inputNumber} в степени {inputPow} равно: {resultVariantMath}");
 
     Console.WriteLine("-----Второй вариант-----");
-    timePoint = DateTime.Now;
-    Console.WriteLine($"Число {inputNumber} в степени {inputPow} равно: {VariantFor()}");
-    Console.WriteLine("Время выполнения: " + (DateTime.Now.Ticks - timePoint.Ticks));
+    Console.WriteLine($"Число {inputNumber} в степени {inputPow} равно: {resultVariantFor}");
 }
 //Вызываем метод считывания переменных
 ReadNumbers();
