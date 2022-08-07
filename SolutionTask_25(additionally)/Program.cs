@@ -52,6 +52,11 @@ int Remainder()
     return result;
 }
 
+int Degree()
+{
+    result = (int)Math.Pow(inputFirstNumber, inputSecondNumber);
+    return result;
+}
 //Проверяем знак операции и вызываем соответствующий метод
 void Calculate()
 {
@@ -75,6 +80,14 @@ void Calculate()
     {
         Console.WriteLine($"{inputFirstNumber} {inputChar} {inputSecondNumber} = {Remainder()}");
     }
+    if (inputChar == "^")
+    {
+        Console.WriteLine($"{inputFirstNumber} {inputChar} {inputSecondNumber} = {Degree()}");
+    }
+    else{
+        Console.WriteLine("Я знаю только: +, -, *, /, %, ^");
+    }
+
 }
 
 //Вызов методов
