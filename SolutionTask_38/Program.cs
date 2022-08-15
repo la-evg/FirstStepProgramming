@@ -41,7 +41,7 @@ void PrintIntArray(int[] inputArray)
 int CalculateTask(int[] inputArray)
 {
     //Вводим переменную для максимального элемента
-    int max = 0;
+    int max = int.MinValue;
     //Вводим переменную для минимального элемента и присваеваем ему максимальное значение
     int min = int.MaxValue;
     //Вводим переменную для подсчета суммы
