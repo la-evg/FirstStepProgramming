@@ -1,4 +1,11 @@
-﻿Console.Clear();
+﻿/* №47 Задайте двумерный массив размером m×n, заполненный случайными вещественными числами.
+m = 3, n = 4.
+0,5 7 -2 -0,2
+1 -3,3 8 -9,9
+8 7,8 -7,1 9
+* При выводе матрицы показывать каждую цифру разного цвета(цветов всего 16) */
+
+Console.Clear();
 
 //Метод чтения количества чисел для ввода
 int[,] ReadLengthArr()
@@ -8,31 +15,31 @@ int[,] ReadLengthArr()
     arrSize[0, 0] = int.Parse(Console.ReadLine());
     Console.Write("Введите колличество столбцов: ");
     arrSize[0, 1] = int.Parse(Console.ReadLine());
-    Console.Write("Введите число начала диапазона чисел: ");
-    arrSize[1, 0] = int.Parse(Console.ReadLine());
-    Console.Write("Введите число конца диапазона чисел: ");
-    arrSize[1, 1] = int.Parse(Console.ReadLine());
+    //Console.Write("Введите число начала диапазона чисел: ");
+    //arrSize[1, 0] = int.Parse(Console.ReadLine());
+    //Console.Write("Введите число конца диапазона чисел: ");
+    //arrSize[1, 1] = int.Parse(Console.ReadLine());
 
     return arrSize;
 }
 
 // Метод генерации двумерного массива из входных параметров
-int[,] GenerateArray(int[,] size)
+double[,] GenerateArray(int[,] size)
 {
     System.Random numberSintezator = new System.Random();
-    int[,] genArr = new int[size[0, 0], size[0, 1]];
+    double[,] genArr = new double[size[0, 0], size[0, 1]];
     for (int i = 0; i < size[0, 0]; i++)
     {
         for (int j = 0; j < size[0, 1]; j++)
         {
-            genArr[i, j] = numberSintezator.Next(size[1, 0], size[1, 1]);
+            genArr[i, j] = Math.Round(numberSintezator.NextDouble(), 2) + numberSintezator.Next(0, 10);
         }
     }
     return genArr;
 }
 
 //Метод для вывода двумерного массива
-void PrintTwoDimArray(int[,] inputArray)
+void PrintTwoDimArray(double[,] inputArray)
 {
     int i = 0; int j = 0;
 
@@ -61,7 +68,7 @@ ConsoleColor[] col = new ConsoleColor[]{ConsoleColor.Black,ConsoleColor.Blue,Con
                                         ConsoleColor.Yellow};
 
 //Метод для цветного вывода двумерного массива
-void PrintColorTwoDimArray(int[,] inputArray)
+void PrintColorTwoDimArray(double[,] inputArray)
 {
     int i = 0; int j = 0;
     int buffColor = 0;
@@ -71,16 +78,16 @@ void PrintColorTwoDimArray(int[,] inputArray)
         Console.Write("[");
         while (j < inputArray.GetLength(1) - 1)
         {
-            
+
             Console.ForegroundColor = col[buffColor];
-            Console.Write(inputArray[i, j]);
+            Console.Write(Math.Round(inputArray[i, j], 2));
             Console.ResetColor();
-            Console.Write(", ");
+            Console.Write(", \t");
             buffColor++;
             j++;
         }
         Console.ForegroundColor = col[buffColor];
-        Console.Write(inputArray[i, j]);
+        Console.Write(Math.Round(inputArray[i, j], 2));
         Console.ResetColor();
         Console.Write("]\n");
         buffColor++;
@@ -91,6 +98,6 @@ void PrintColorTwoDimArray(int[,] inputArray)
 }
 
 
-int[,] array = GenerateArray(ReadLengthArr());
-PrintTwoDimArray(array);
+double[,] array = GenerateArray(ReadLengthArr());
+//PrintTwoDimArray(array);
 PrintColorTwoDimArray(array);
